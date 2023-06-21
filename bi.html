@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stagionatura</title>
+<style>
+body {
+  background-color: #f8f8f8;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 0;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #e60012;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input {
+  width: 400px;
+  height: 60px;
+  font-size: 54px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 200px;
+  height: 74px;
+  font-size: 34px;
+  background-color: #e60012;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff3131;
+}
+
+p {
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  input {
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
+
+/* Nintendo style overrides */
+
+h1 {
+  font-size: 75px;
+}
+
+input {
+  width: 600px;
+  height: 90px;
+}
+
+p {
+  font-size: 54px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+      <h1>Inserisci la tua età:</h1>
+      <input id="age" type="number" min="0" max="120">
+      <button id="submit" onclick="checkAge()">Submit</button>
+      <p id="message"></p>
+    </div>
+
+    <script>
+        function checkAge() {
+          let age = parseInt(document.getElementById("age").value);
+          let message = document.getElementById("message");
+          if (age === 39) {
+            message.textContent = "Un altro anno di stagionatura e sei pronto per il banco frigo del Lidl.";
+          } else if (age < 39) {
+            message.textContent = "All'età tua zumpava i pariti!";
+          } else {
+            message.textContent = "Mi raccomando, non fare il passo più lungo della gamba che ti esce l'ernia.";
+          }
+        }
+
+        // Add an event listener for the keydown event
+        document.addEventListener("keydown", function(event) {
+          // Check if the key pressed is ENTER
+          if (event.keyCode === 13) {
+            // Call the checkAge function
+            checkAge();
+          }
+        });
+    </script>
+</body>
+</html>
